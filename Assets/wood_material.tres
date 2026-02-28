@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bxy2dcj38a5a8"]
+
+[ext_resource type="Texture2D" uid="uid://jx8ogbnrpfqh" path="res://Assets/Wood049_1K-PNG_Color.png" id="1_kcjtb"]
+
+[resource]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_kcjtb")
+metallic_specular = 0.0
