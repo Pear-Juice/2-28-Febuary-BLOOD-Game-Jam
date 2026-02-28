@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ID" load_steps=2 format=3 uid="uid://cgn3xkxunp6iq"]
+
+[ext_resource type="Script" uid="uid://bjmgb38ueo4tc" path="res://Systems/ID/ID.gd" id="1_37tre"]
+
+[resource]
+script = ExtResource("1_37tre")
+id_name = "Vlad"
+birth_date_month = 12
+birth_date_day = 5
+birth_date_year = 1105
+metadata/_custom_type_script = "uid://bjmgb38ueo4tc"

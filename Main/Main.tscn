@@ -1,3 +1,45 @@
-[gd_scene format=3 uid="uid://bkks0xjmsemhi"]
+[gd_scene load_steps=13 format=3 uid="uid://bkks0xjmsemhi"]
+
+[ext_resource type="Script" uid="uid://0dwtay6xbh37" path="res://Systems/Loop/GameManager.gd" id="1_amygn"]
+[ext_resource type="Script" uid="uid://dwgw5ax4qo3s5" path="res://Systems/Loop/ReceptionManager.gd" id="2_ps1la"]
+[ext_resource type="Script" uid="uid://bywdsarttyms" path="res://Systems/Day/Day.gd" id="2_u2i7p"]
+[ext_resource type="Script" uid="uid://d0s8u8wvhknld" path="res://Systems/Loop/BarManager.gd" id="3_6aewd"]
+[ext_resource type="Script" uid="uid://co6c4jpuifxgj" path="res://Systems/Character/Character.gd" id="3_hh5pf"]
+[ext_resource type="Resource" uid="uid://bbex4533yh8dc" path="res://Assets/Character/Blord.tres" id="4_qg80j"]
+[ext_resource type="Resource" uid="uid://cy2tepcmlnee1" path="res://Assets/Character/Vlad.tres" id="5_bor5n"]
+[ext_resource type="Resource" uid="uid://b7bc5gy5ksth2" path="res://Assets/Character/Vrod.tres" id="6_wltqy"]
+[ext_resource type="Script" uid="uid://c8iwnmgbc5lp5" path="res://Systems/Character/CharacterQueue.gd" id="9_bor5n"]
+
+[sub_resource type="Resource" id="Resource_h5g1y"]
+script = ExtResource("2_u2i7p")
+characters = Array[ExtResource("3_hh5pf")]([ExtResource("4_qg80j"), ExtResource("5_bor5n"), ExtResource("6_wltqy")])
+metadata/_custom_type_script = "uid://bywdsarttyms"
+
+[sub_resource type="Resource" id="Resource_6aewd"]
+script = ExtResource("2_u2i7p")
+characters = Array[ExtResource("3_hh5pf")]([ExtResource("6_wltqy"), ExtResource("5_bor5n"), ExtResource("4_qg80j")])
+metadata/_custom_type_script = "uid://bywdsarttyms"
+
+[sub_resource type="Resource" id="Resource_kf8jr"]
+script = ExtResource("2_u2i7p")
+characters = Array[ExtResource("3_hh5pf")]([ExtResource("5_bor5n"), ExtResource("6_wltqy"), ExtResource("4_qg80j")])
+metadata/_custom_type_script = "uid://bywdsarttyms"
 
 [node name="Main" type="Node3D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_amygn")
+days = Array[ExtResource("2_u2i7p")]([SubResource("Resource_h5g1y"), SubResource("Resource_6aewd"), SubResource("Resource_kf8jr")])
+metadata/_custom_type_script = "uid://0dwtay6xbh37"
+
+[node name="ReceptionManager" type="Node" parent="."]
+script = ExtResource("2_ps1la")
+metadata/_custom_type_script = "uid://dwgw5ax4qo3s5"
+
+[node name="BarManager" type="Node" parent="."]
+script = ExtResource("3_6aewd")
+metadata/_custom_type_script = "uid://d0s8u8wvhknld"
+
+[node name="CharacterQueue" type="Node" parent="."]
+script = ExtResource("9_bor5n")
+metadata/_custom_type_script = "uid://c8iwnmgbc5lp5"
