@@ -1,3 +1,199 @@
-[gd_scene format=3 uid="uid://bkks0xjmsemhi"]
+[gd_scene load_steps=27 format=3 uid="uid://bkks0xjmsemhi"]
+
+[ext_resource type="Script" uid="uid://0dwtay6xbh37" path="res://Systems/Loop/GameManager.gd" id="1_amygn"]
+[ext_resource type="Script" uid="uid://dwgw5ax4qo3s5" path="res://Systems/Loop/ReceptionManager.gd" id="2_ps1la"]
+[ext_resource type="Script" uid="uid://bywdsarttyms" path="res://Systems/Day/Day.gd" id="2_u2i7p"]
+[ext_resource type="Script" uid="uid://d0s8u8wvhknld" path="res://Systems/Loop/BarManager.gd" id="3_6aewd"]
+[ext_resource type="Script" uid="uid://co6c4jpuifxgj" path="res://Systems/Character/Character.gd" id="3_hh5pf"]
+[ext_resource type="Resource" uid="uid://bbex4533yh8dc" path="res://Assets/Character/Blord.tres" id="4_qg80j"]
+[ext_resource type="Resource" uid="uid://cy2tepcmlnee1" path="res://Assets/Character/Vlad.tres" id="5_bor5n"]
+[ext_resource type="Resource" uid="uid://b7bc5gy5ksth2" path="res://Assets/Character/Vrod.tres" id="6_wltqy"]
+[ext_resource type="Script" uid="uid://c8iwnmgbc5lp5" path="res://Systems/Character/CharacterQueue.gd" id="9_bor5n"]
+[ext_resource type="PackedScene" uid="uid://bxhemtqar6qwm" path="res://Assets/bartop.glb" id="10_h5g1y"]
+[ext_resource type="PackedScene" uid="uid://ds1eav5mnj3s1" path="res://Assets/host_stand.glb" id="11_qd626"]
+[ext_resource type="PackedScene" uid="uid://b6v777rfxgvmh" path="res://Assets/couch.glb" id="12_6ivxk"]
+[ext_resource type="PackedScene" uid="uid://4xobn0lpmbmp" path="res://Assets/coffee_table.glb" id="13_6yo1i"]
+
+[sub_resource type="Resource" id="Resource_h5g1y"]
+script = ExtResource("2_u2i7p")
+characters = Array[ExtResource("3_hh5pf")]([ExtResource("4_qg80j"), ExtResource("5_bor5n"), ExtResource("6_wltqy")])
+metadata/_custom_type_script = "uid://bywdsarttyms"
+
+[sub_resource type="Resource" id="Resource_6aewd"]
+script = ExtResource("2_u2i7p")
+characters = Array[ExtResource("3_hh5pf")]([ExtResource("6_wltqy"), ExtResource("5_bor5n"), ExtResource("4_qg80j")])
+metadata/_custom_type_script = "uid://bywdsarttyms"
+
+[sub_resource type="Resource" id="Resource_kf8jr"]
+script = ExtResource("2_u2i7p")
+characters = Array[ExtResource("3_hh5pf")]([ExtResource("5_bor5n"), ExtResource("6_wltqy"), ExtResource("4_qg80j")])
+metadata/_custom_type_script = "uid://bywdsarttyms"
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lrfe7"]
+size = Vector2(12, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r2ac1"]
+size = Vector2(20, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d3r6l"]
+size = Vector2(12, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fayjp"]
+size = Vector2(6, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j2iu7"]
+size = Vector2(6, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h5g1y"]
+size = Vector2(6, 14)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qd626"]
+size = Vector2(6, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6yo1i"]
+size = Vector2(6, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ivxk"]
+size = Vector2(6, 6)
+
+[sub_resource type="Environment" id="Environment_h5g1y"]
+ambient_light_source = 2
+ambient_light_color = Color(0.2285305, 0.18869767, 0.3474931, 1)
+ssao_enabled = true
+ssil_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_sky_affect = 0.0
 
 [node name="Main" type="Node3D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_amygn")
+days = Array[ExtResource("2_u2i7p")]([SubResource("Resource_h5g1y"), SubResource("Resource_6aewd"), SubResource("Resource_kf8jr")])
+metadata/_custom_type_script = "uid://0dwtay6xbh37"
+
+[node name="ReceptionManager" type="Node" parent="."]
+script = ExtResource("2_ps1la")
+metadata/_custom_type_script = "uid://dwgw5ax4qo3s5"
+
+[node name="BarManager" type="Node" parent="."]
+script = ExtResource("3_6aewd")
+metadata/_custom_type_script = "uid://d0s8u8wvhknld"
+
+[node name="CharacterQueue" type="Node" parent="."]
+script = ExtResource("9_bor5n")
+metadata/_custom_type_script = "uid://c8iwnmgbc5lp5"
+
+[node name="bartop2" parent="." instance=ExtResource("10_h5g1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59251, 1.1920929e-07, -2.1401894)
+
+[node name="bartop3" parent="." instance=ExtResource("10_h5g1y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5925102, 1.1920929e-07, -0.14018941)
+
+[node name="host_stand2" parent="." instance=ExtResource("11_qd626")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.38975978, 0, -1.6432476)
+
+[node name="Room" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9)
+mesh = SubResource("PlaneMesh_lrfe7")
+skeleton = NodePath("../..")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -2, 5, -9)
+mesh = SubResource("PlaneMesh_r2ac1")
+skeleton = NodePath("../..")
+
+[node name="WallB" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, -1, 0, 1, 2.9802322e-08, 4, 3, -19)
+mesh = SubResource("PlaneMesh_d3r6l")
+skeleton = NodePath("../..")
+
+[node name="WallL" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 3, -15)
+mesh = SubResource("PlaneMesh_fayjp")
+skeleton = NodePath("../..")
+
+[node name="WallR" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 8, 3, -9)
+mesh = SubResource("PlaneMesh_j2iu7")
+skeleton = NodePath("../..")
+
+[node name="WallL2" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(-3.9081024e-15, 4.371139e-08, 1, 1, 8.940697e-08, 0, -8.940697e-08, 1, -4.371139e-08, -7, 3, -5)
+mesh = SubResource("PlaneMesh_h5g1y")
+
+[node name="WallL3" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(-3.9081024e-15, 4.371139e-08, -1, 1, 8.940697e-08, 0, 8.940697e-08, -1, -4.371139e-08, -5, 3, -1)
+mesh = SubResource("PlaneMesh_qd626")
+
+[node name="WallL4" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(-8.940697e-08, 1, 8.742278e-08, 1, 8.940697e-08, 0, -7.816205e-15, 8.742278e-08, -1, 0, 3, 4)
+mesh = SubResource("PlaneMesh_qd626")
+
+[node name="WallL6" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(-3.9081024e-15, 4.371139e-08, -1, 1, 8.940697e-08, 0, 8.940697e-08, -1, -4.371139e-08, 4.9526687, 3, 1)
+mesh = SubResource("PlaneMesh_6yo1i")
+
+[node name="WallL5" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(-1, -1.3311836e-07, -3.821371e-15, -1.3311836e-07, 1, 8.742278e-08, -7.816205e-15, 8.742278e-08, -1, -5, 0, -3)
+mesh = SubResource("PlaneMesh_6ivxk")
+
+[node name="couch2" parent="Room" instance=ExtResource("12_6ivxk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5902653, 0, -6.497006)
+
+[node name="couch3" parent="Room" instance=ExtResource("12_6ivxk")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2.5466034, 0, -8.708693)
+
+[node name="coffee_table" parent="Room" instance=ExtResource("13_6yo1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6255846, 0, -7.6455426)
+
+[node name="couch4" parent="Room" instance=ExtResource("12_6ivxk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5902653, 0, -11.497005)
+
+[node name="couch5" parent="Room" instance=ExtResource("12_6ivxk")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2.5466034, 0, -13.708693)
+
+[node name="coffee_table2" parent="Room" instance=ExtResource("13_6yo1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6255846, 0, -12.645542)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h5g1y")
+
+[node name="CeilingLight2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0643435, 4.5427094, -14.535404)
+light_color = Color(0.895387, 0.58137375, 0.8231495, 1)
+
+[node name="CeilingLight1" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0643435, 4.5427094, -7.9474316)
+light_color = Color(0.5671985, 0.70562726, 0.94109774, 1)
+
+[node name="Lamp1" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08513737, 1.3827168, -7.484695)
+light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
+
+[node name="Lamp2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08513737, 1.3827168, -12.502717)
+light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
+
+[node name="Lamp3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.993503, 2.9514153, -1.9139663)
+light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
+
+[node name="Lamp4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.993503, 2.9514153, -1.9139663)
+light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
+
+[node name="Lamp5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.408654, 1.8653433, -1.8195554)
+light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
+light_energy = 0.5
+
+[node name="OutsideLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.669689, 6.351652, -3.615087)
+light_color = Color(0.8498425, 0.8688784, 0.9192041, 1)
+light_energy = 16.0
+omni_range = 14.775
+omni_attenuation = 2.073
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
