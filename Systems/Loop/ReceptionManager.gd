@@ -8,6 +8,8 @@ var characters : Array[Character]
 
 signal finished
 
+@export var reception : Reception
+
 func _init() -> void:
 	I = self
 
@@ -25,7 +27,8 @@ func loop():
 		
 		if character is Character:
 			print("Show reception character: ", character.id.id_name)
-			await get_tree().create_timer(1).timeout
+			reception.enter(character)
+			await get_tree().create_timer(5).timeout
 		else:
 			break
 

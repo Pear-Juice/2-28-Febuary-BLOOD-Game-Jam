@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbulkhqnx6a5w"]
+
+[ext_resource type="Script" uid="uid://b58ar1kgkyk88" path="res://Objects/Reception/Reception.gd" id="1_e6low"]
+[ext_resource type="PackedScene" uid="uid://ys8o7nnqccg3" path="res://Objects/host_stand.tscn" id="2_78cpd"]
+[ext_resource type="PackedScene" uid="uid://cbqv6moqrygkn" path="res://Objects/CharacterObj/CharacterObj.tscn" id="2_xkmxa"]
+
+[node name="Reception" type="Node3D" node_paths=PackedStringArray("entrance", "exit", "target")]
+script = ExtResource("1_e6low")
+character_obj_scn = ExtResource("2_xkmxa")
+entrance = NodePath("Entrance")
+exit = NodePath("Exit")
+target = NodePath("Target")
+
+[node name="host_stand2" parent="." instance=ExtResource("2_78cpd")]
+
+[node name="Entrance" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.0571675, -1)
+
+[node name="Target" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.500001, -1)
+
+[node name="Exit" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.920754, 1.0571675, -1)

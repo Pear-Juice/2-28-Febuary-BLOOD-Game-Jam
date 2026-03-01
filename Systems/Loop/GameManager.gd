@@ -26,6 +26,6 @@ func loop():
 		BarManager.I.begin(current_day.characters.duplicate())
 		await BarManager.I.finished
 		
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(5).timeout
 		print("Finished day")
 	print("End game")

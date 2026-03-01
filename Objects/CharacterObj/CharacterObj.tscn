@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbqv6moqrygkn"]
+
+[ext_resource type="Script" uid="uid://qii420uibskw" path="res://Objects/CharacterObj/CharacterObj.gd" id="1_nl3lr"]
+
+[node name="CharacterObj" type="Node3D" node_paths=PackedStringArray("sprite3D")]
+script = ExtResource("1_nl3lr")
+sprite3D = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
