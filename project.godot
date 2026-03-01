@@ -15,6 +15,10 @@ run/main_scene="uid://bkks0xjmsemhi"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="2-28 February BLOOD Game Jam"
+
 [rendering]
 
 lights_and_shadows/positional_shadow/atlas_size=1024
