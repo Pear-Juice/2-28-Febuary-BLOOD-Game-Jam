@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://dv1gxdx4lb2hv"]
+[gd_scene load_steps=4 format=3 uid="uid://dv1gxdx4lb2hv"]
 
-[node name="Bar" type="Node3D"]
+[ext_resource type="Script" uid="uid://c5qy2bjknnif6" path="res://Objects/Bar/Bar.gd" id="1_2mo7t"]
+[ext_resource type="PackedScene" uid="uid://bcx5rn2vow7sk" path="res://Objects/bartop.tscn" id="1_2ynl2"]
+[ext_resource type="PackedScene" uid="uid://cbqv6moqrygkn" path="res://Objects/CharacterObj/CharacterObj.tscn" id="2_4q4k8"]
+
+[node name="Bar" type="Node3D" node_paths=PackedStringArray("entrance", "exit", "target")]
+script = ExtResource("1_2mo7t")
+character_obj_scn = ExtResource("2_4q4k8")
+entrance = NodePath("Entrance")
+exit = NodePath("Exit")
+target = NodePath("Target")
+
+[node name="Bartop" parent="." instance=ExtResource("1_2ynl2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59251, 1.1920929e-07, -2.1401894)
+
+[node name="Bartop2" parent="." instance=ExtResource("1_2ynl2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5925102, 1.1920929e-07, -0.14018941)
+
+[node name="Target" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24166, 1.2688322, -2.8158078)
+
+[node name="Entrance" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9097624, 0.37778282, -6.4523087)
+
+[node name="Exit" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3383889, 0.37289405, -5.011484)

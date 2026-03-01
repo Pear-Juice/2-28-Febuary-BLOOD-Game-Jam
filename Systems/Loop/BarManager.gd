@@ -4,6 +4,9 @@ extends Node
 
 static var I : BarManager
 
+@export var bar : Bar
+@export var bar_camera : Camera
+
 var characters : Array[Character]
 
 signal finished
@@ -17,6 +20,10 @@ func begin(_characters : Array[Character]):
 	
 	CharacterQueue.I.populate(characters)
 
+	bar_camera.visible = true
+	bar_camera.process_mode = Node.PROCESS_MODE_INHERIT
+	bar_camera.camera.make_current()
+
 	loop()
 
 func loop():
@@ -25,9 +32,15 @@ func loop():
 		
 		if character is Character:
 			print("Show bar character: ", character.id.id_name)
-			await get_tree().create_timer(1).timeout
+			bar.enter(character)
+			await get_tree().create_timer(5).timeout
 		else:
 			break
 	
-	print("Finished day")
+	end()
+
+func end():
+	bar_camera.visible = true
+	bar_camera.process_mode = Node.PROCESS_MODE_INHERIT
 	finished.emit()
+	print("Finished bar")

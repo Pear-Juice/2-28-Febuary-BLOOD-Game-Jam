@@ -1,7 +1,9 @@
-extends Node
+class_name Camera
 
-@onready var camera := %Camera3D
-@onready var rayCast := %RayCast3D
+extends Node3D
+
+@export var camera : Camera3D
+@export var rayCast := RayCast3D
 @export_range(0.0, 1.0) var sensitivity = 0.1
 var _mouse_rotation : Vector3
 var _rotation_input : float

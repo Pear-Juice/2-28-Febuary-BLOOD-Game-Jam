@@ -9,6 +9,7 @@ var characters : Array[Character]
 signal finished
 
 @export var reception : Reception
+@export var reception_camera : Camera
 
 func _init() -> void:
 	I = self
@@ -19,6 +20,9 @@ func begin(_characters : Array[Character]):
 	
 	CharacterQueue.I.populate(characters)
 	
+	reception_camera.visible = true
+	reception_camera.process_mode = Node.PROCESS_MODE_INHERIT
+	reception_camera.camera.make_current()
 	loop()
 
 func loop():
@@ -30,6 +34,12 @@ func loop():
 			reception.enter(character)
 			await get_tree().create_timer(5).timeout
 		else:
+			end()
 			break
 
 	finished.emit()
+
+func end():
+	reception_camera.visible = false
+	reception_camera.process_mode = Node.PROCESS_MODE_DISABLED
+	print("Finished reception")

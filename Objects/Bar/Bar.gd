@@ -1,4 +1,4 @@
-class_name Reception
+class_name Bar
 
 extends Node
 
@@ -10,9 +10,6 @@ signal character_enter
 @export var exit : Node3D
 @export var target : Node3D
 
-@export var enter_time := 1.0
-@export var exit_time := 1.5
-
 var character_obj : CharacterObj
 
 func enter(character : Character):
@@ -20,12 +17,13 @@ func enter(character : Character):
 	character_obj.initialize(character)
 	add_child(character_obj)
 	character_obj.global_position = entrance.global_position
-	character_obj.sprite3D.modulate = Color.from_rgba8(20,20,20,255)
+	character_obj.sprite3D.modulate = Color.BLACK
 	
 	var tween_pos = create_tween()
 	var tween_color = create_tween()
-	tween_pos.tween_property(character_obj, "global_position", target.global_position, enter_time)
-	tween_color.tween_property(character_obj.sprite3D, "modulate", Color.WHITE, enter_time)
+	tween_pos.tween_property(character_obj, "global_position", target.global_position, 1)
+	tween_color.tween_property(character_obj.sprite3D, "modulate", Color.WHITE, 1)
+	
 	await tween_pos.finished
 	await get_tree().create_timer(2).timeout
 	leave()
@@ -33,9 +31,8 @@ func enter(character : Character):
 func leave():
 	var tween_pos = create_tween()
 	var tween_color = create_tween()
-	
-	tween_pos.tween_property(character_obj, "global_position", exit.global_position, exit_time)
-	tween_color.tween_property(character_obj.sprite3D, "modulate", Color.from_rgba8(20,20,20,20), exit_time)
+	tween_pos.tween_property(character_obj, "global_position", exit.global_position, 1)
+	tween_color.tween_property(character_obj.sprite3D, "modulate", Color.BLACK, 1)
 	
 	await tween_pos.finished
 	character_obj.queue_free()

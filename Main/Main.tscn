@@ -9,10 +9,10 @@
 [ext_resource type="Resource" uid="uid://cy2tepcmlnee1" path="res://Assets/Character/Vlad.tres" id="5_bor5n"]
 [ext_resource type="Resource" uid="uid://b7bc5gy5ksth2" path="res://Assets/Character/Vrod.tres" id="6_wltqy"]
 [ext_resource type="Script" uid="uid://c8iwnmgbc5lp5" path="res://Systems/Character/CharacterQueue.gd" id="9_bor5n"]
-[ext_resource type="PackedScene" uid="uid://bcx5rn2vow7sk" path="res://Objects/bartop.tscn" id="10_h5g1y"]
 [ext_resource type="PackedScene" uid="uid://cbulkhqnx6a5w" path="res://Objects/Reception/Reception.tscn" id="10_qd626"]
 [ext_resource type="PackedScene" uid="uid://2c51664oqwiy" path="res://Objects/Camera/Camera.tscn" id="11_6ivxk"]
 [ext_resource type="PackedScene" uid="uid://dhor4k8m2wsje" path="res://Objects/couch.tscn" id="12_6ivxk"]
+[ext_resource type="PackedScene" uid="uid://dv1gxdx4lb2hv" path="res://Objects/Bar/Bar.tscn" id="12_6yo1i"]
 [ext_resource type="ArrayMesh" uid="uid://c7iewvl36m4y0" path="res://Assets/Meshes/room.mesh" id="12_qd626"]
 [ext_resource type="PackedScene" uid="uid://dhf7bvcky3pqf" path="res://Objects/coffee_table.tscn" id="13_6yo1i"]
 
@@ -46,13 +46,16 @@ script = ExtResource("1_amygn")
 days = Array[ExtResource("2_u2i7p")]([SubResource("Resource_h5g1y"), SubResource("Resource_6aewd"), SubResource("Resource_kf8jr")])
 metadata/_custom_type_script = "uid://0dwtay6xbh37"
 
-[node name="ReceptionManager" type="Node" parent="." node_paths=PackedStringArray("reception")]
+[node name="ReceptionManager" type="Node" parent="." node_paths=PackedStringArray("reception", "reception_camera")]
 script = ExtResource("2_ps1la")
 reception = NodePath("../Reception")
+reception_camera = NodePath("../ReceptionCamera")
 metadata/_custom_type_script = "uid://dwgw5ax4qo3s5"
 
-[node name="BarManager" type="Node" parent="."]
+[node name="BarManager" type="Node" parent="." node_paths=PackedStringArray("bar", "bar_camera")]
 script = ExtResource("3_6aewd")
+bar = NodePath("../Bar")
+bar_camera = NodePath("../BarCamera")
 metadata/_custom_type_script = "uid://d0s8u8wvhknld"
 
 [node name="CharacterQueue" type="Node" parent="."]
@@ -62,14 +65,17 @@ metadata/_custom_type_script = "uid://c8iwnmgbc5lp5"
 [node name="Reception" parent="." instance=ExtResource("10_qd626")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.39632344, 0, -1.6524659)
 
-[node name="Camera" parent="." instance=ExtResource("11_6ivxk")]
+[node name="ReceptionCamera" parent="." instance=ExtResource("11_6ivxk")]
 transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0.1852594, 1.8541942, -1.6606219)
 
-[node name="Bartop" parent="." instance=ExtResource("10_h5g1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59251, 1.1920929e-07, -2.1401894)
+[node name="Bar" parent="." instance=ExtResource("12_6yo1i")]
 
-[node name="Bartop2" parent="." instance=ExtResource("10_h5g1y")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5925102, 1.1920929e-07, -0.14018941)
+[node name="BarCamera" parent="." instance=ExtResource("11_6ivxk")]
+process_mode = 4
+transform = Transform3D(1, 0, -7.351371e-08, 0, 1, 0, 7.351371e-08, 0, 1, 5.435177, 1.4865221, -0.94177353)
+visible = false
+y_tilt_min = -50
+y_tilt_max = 50
 
 [node name="Room2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.082896, 0, -7.583631)
@@ -121,14 +127,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.993503, 2.9514153, -1.9139663)
 light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
 shadow_enabled = true
-
-[node name="Lamp5" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.408654, 1.8715317, -1.8195554)
-light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
-light_energy = 0.5
-shadow_enabled = true
-spot_range = 1.0
-spot_angle = 90.0
 
 [node name="OutsideLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.669689, 6.351652, -3.615087)
