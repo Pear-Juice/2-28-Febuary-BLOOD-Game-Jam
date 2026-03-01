@@ -9,10 +9,10 @@
 [ext_resource type="Resource" uid="uid://cy2tepcmlnee1" path="res://Assets/Character/Vlad.tres" id="5_bor5n"]
 [ext_resource type="Resource" uid="uid://b7bc5gy5ksth2" path="res://Assets/Character/Vrod.tres" id="6_wltqy"]
 [ext_resource type="Script" uid="uid://c8iwnmgbc5lp5" path="res://Systems/Character/CharacterQueue.gd" id="9_bor5n"]
-[ext_resource type="PackedScene" uid="uid://bxhemtqar6qwm" path="res://Assets/bartop.glb" id="10_h5g1y"]
-[ext_resource type="PackedScene" uid="uid://ds1eav5mnj3s1" path="res://Assets/host_stand.glb" id="11_qd626"]
-[ext_resource type="PackedScene" uid="uid://b6v777rfxgvmh" path="res://Assets/couch.glb" id="12_6ivxk"]
-[ext_resource type="PackedScene" uid="uid://4xobn0lpmbmp" path="res://Assets/coffee_table.glb" id="13_6yo1i"]
+[ext_resource type="PackedScene" uid="uid://bcx5rn2vow7sk" path="res://Objects/bartop.tscn" id="10_h5g1y"]
+[ext_resource type="PackedScene" uid="uid://ys8o7nnqccg3" path="res://Objects/host_stand.tscn" id="11_qd626"]
+[ext_resource type="PackedScene" uid="uid://dhor4k8m2wsje" path="res://Objects/couch.tscn" id="12_6ivxk"]
+[ext_resource type="PackedScene" uid="uid://dhf7bvcky3pqf" path="res://Objects/coffee_table.tscn" id="13_6yo1i"]
 
 [sub_resource type="Resource" id="Resource_h5g1y"]
 script = ExtResource("2_u2i7p")
@@ -83,13 +83,13 @@ metadata/_custom_type_script = "uid://d0s8u8wvhknld"
 script = ExtResource("9_bor5n")
 metadata/_custom_type_script = "uid://c8iwnmgbc5lp5"
 
-[node name="bartop2" parent="." instance=ExtResource("10_h5g1y")]
+[node name="Bartop" parent="." instance=ExtResource("10_h5g1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59251, 1.1920929e-07, -2.1401894)
 
-[node name="bartop3" parent="." instance=ExtResource("10_h5g1y")]
+[node name="Bartop2" parent="." instance=ExtResource("10_h5g1y")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5925102, 1.1920929e-07, -0.14018941)
 
-[node name="host_stand2" parent="." instance=ExtResource("11_qd626")]
+[node name="host_stand3" parent="." instance=ExtResource("11_qd626")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.38975978, 0, -1.6432476)
 
 [node name="Room" type="Node3D" parent="."]
@@ -139,22 +139,22 @@ mesh = SubResource("PlaneMesh_6yo1i")
 transform = Transform3D(-1, -1.3311836e-07, -3.821371e-15, -1.3311836e-07, 1, 8.742278e-08, -7.816205e-15, 8.742278e-08, -1, -5, 0, -3)
 mesh = SubResource("PlaneMesh_6ivxk")
 
-[node name="couch2" parent="Room" instance=ExtResource("12_6ivxk")]
+[node name="Couch" parent="Room" instance=ExtResource("12_6ivxk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5902653, 0, -6.497006)
 
-[node name="couch3" parent="Room" instance=ExtResource("12_6ivxk")]
+[node name="Couch2" parent="Room" instance=ExtResource("12_6ivxk")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2.5466034, 0, -8.708693)
 
-[node name="coffee_table" parent="Room" instance=ExtResource("13_6yo1i")]
+[node name="Coffee table2" parent="Room" instance=ExtResource("13_6yo1i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6255846, 0, -7.6455426)
 
-[node name="couch4" parent="Room" instance=ExtResource("12_6ivxk")]
+[node name="Couch3" parent="Room" instance=ExtResource("12_6ivxk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.5902653, 0, -11.497005)
 
-[node name="couch5" parent="Room" instance=ExtResource("12_6ivxk")]
+[node name="Couch4" parent="Room" instance=ExtResource("12_6ivxk")]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2.5466034, 0, -13.708693)
 
-[node name="coffee_table2" parent="Room" instance=ExtResource("13_6yo1i")]
+[node name="Coffee table" parent="Room" instance=ExtResource("13_6yo1i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6255846, 0, -12.645542)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

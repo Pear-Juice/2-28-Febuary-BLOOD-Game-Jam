@@ -1,5 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcx5rn2vow7sk"]
 
-[ext_resource type="PackedScene" uid="uid://bxhemtqar6qwm" path="res://Assets/bartop.glb" id="1_rmfoy"]
+[ext_resource type="ArrayMesh" uid="uid://u3rujoi8e3xo" path="res://Assets/Meshes/bartop.mesh" id="1_rmfoy"]
 
-[node name="Bartop" instance=ExtResource("1_rmfoy")]
+[node name="Bartop" type="Node3D"]
+
+[node name="bartop" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = ExtResource("1_rmfoy")
+skeleton = NodePath("")

@@ -1,5 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ys8o7nnqccg3"]
+[gd_scene load_steps=3 format=3 uid="uid://ys8o7nnqccg3"]
 
-[ext_resource type="PackedScene" uid="uid://ds1eav5mnj3s1" path="res://Assets/host_stand.glb" id="1_m4n7s"]
+[ext_resource type="ArrayMesh" uid="uid://chvfmg7st78y" path="res://Assets/Meshes/host_stand_base.mesh" id="1_swarc"]
+[ext_resource type="ArrayMesh" uid="uid://ooykvmawk3ct" path="res://Assets/Meshes/host_stand_lamp.mesh" id="2_n0v2g"]
 
-[node name="host_stand2" instance=ExtResource("1_m4n7s")]
+[node name="host_stand2" type="Node3D"]
+
+[node name="host_stand" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = ExtResource("1_swarc")
+skeleton = NodePath("")
+
+[node name="Cylinder" type="MeshInstance3D" parent="host_stand"]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, -0.17364816, 0, 0.17364816, 0.9848077, 0.3227712, 1.3370628, -0.14823155)
+mesh = ExtResource("2_n0v2g")
+skeleton = NodePath("")

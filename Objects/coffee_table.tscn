@@ -1,5 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhf7bvcky3pqf"]
 
-[ext_resource type="PackedScene" uid="uid://4xobn0lpmbmp" path="res://Assets/coffee_table.glb" id="1_fcuhp"]
+[ext_resource type="ArrayMesh" uid="uid://cpmm8tkhun7pi" path="res://Assets/Meshes/coffee_table.mesh" id="1_fcuhp"]
 
-[node name="Coffee table" instance=ExtResource("1_fcuhp")]
+[node name="Coffee table" type="Node3D"]
+
+[node name="table" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = ExtResource("1_fcuhp")
+skeleton = NodePath("")
