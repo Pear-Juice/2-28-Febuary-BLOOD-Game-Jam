@@ -1,8 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhor4k8m2wsje"]
 
-[ext_resource type="PackedScene" uid="uid://b6v777rfxgvmh" path="res://Assets/couch.glb" id="1_7r2mt"]
+[ext_resource type="ArrayMesh" uid="uid://0skpj2w3mrd7" path="res://Assets/Meshes/couch.mesh" id="1_7r2mt"]
 
-[node name="Couch" instance=ExtResource("1_7r2mt")]
+[node name="Couch" type="Node3D"]
 
-[node name="couch" parent="." index="0"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.25, 0)
+[node name="couch" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0.25, 0)
+mesh = ExtResource("1_7r2mt")
+skeleton = NodePath("")
