@@ -21,7 +21,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.59
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24166, 1.2688322, -2.8158078)
 
 [node name="Entrance" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9097624, 0.37778282, -6.4523087)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24166, -0.4563403, -2.8158078)
 
 [node name="Exit" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3383889, 0.37289405, -5.011484)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24166, -0.4563403, -2.8158078)

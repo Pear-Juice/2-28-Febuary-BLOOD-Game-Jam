@@ -22,7 +22,7 @@ func enter(character : Character):
 	var tween_pos = create_tween()
 	var tween_color = create_tween()
 	tween_pos.tween_property(character_obj, "global_position", target.global_position, 1)
-	tween_color.tween_property(character_obj.sprite3D, "modulate", Color.WHITE, 1)
+	tween_color.tween_property(character_obj.sprite3D, "modulate", Color.from_rgba8(220,180,180,255), 1)
 	
 	await tween_pos.finished
 	await get_tree().create_timer(2).timeout
