@@ -41,7 +41,7 @@ _subresources={
 "materials": {
 "Material": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Assets/brass.tres",
+"use_external/fallback_path": "res://Assets/brass_material.tres",
 "use_external/path": "uid://b0amud1214pct"
 },
 "Material.001": {
