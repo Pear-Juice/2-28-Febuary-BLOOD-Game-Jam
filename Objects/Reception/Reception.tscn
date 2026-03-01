@@ -14,10 +14,18 @@ target = NodePath("Target")
 [node name="host_stand2" parent="." instance=ExtResource("2_78cpd")]
 
 [node name="Entrance" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.0571675, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19244885, 1.0571675, -3.192024)
 
 [node name="Target" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.500001, -1)
 
 [node name="Exit" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.920754, 1.0571675, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1028461, 1.057167, 1.6027322)
+
+[node name="Lamp5" type="SpotLight3D" parent="."]
+transform = Transform3D(0.96202767, -1.1931108e-08, 0.27295193, -0.27295193, -4.2051564e-08, 0.96202767, 0, -1, -4.371139e-08, 0.18962333, 1.8641133, -0.02084893)
+light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
+light_energy = 0.5
+shadow_enabled = true
+spot_range = 1.0
+spot_angle = 45.43

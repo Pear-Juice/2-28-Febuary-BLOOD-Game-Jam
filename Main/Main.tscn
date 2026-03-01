@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkks0xjmsemhi"]
+[gd_scene load_steps=20 format=3 uid="uid://bkks0xjmsemhi"]
 
 [ext_resource type="Script" uid="uid://0dwtay6xbh37" path="res://Systems/Loop/GameManager.gd" id="1_amygn"]
 [ext_resource type="Script" uid="uid://dwgw5ax4qo3s5" path="res://Systems/Loop/ReceptionManager.gd" id="2_ps1la"]
@@ -10,7 +10,8 @@
 [ext_resource type="Resource" uid="uid://b7bc5gy5ksth2" path="res://Assets/Character/Vrod.tres" id="6_wltqy"]
 [ext_resource type="Script" uid="uid://c8iwnmgbc5lp5" path="res://Systems/Character/CharacterQueue.gd" id="9_bor5n"]
 [ext_resource type="PackedScene" uid="uid://bcx5rn2vow7sk" path="res://Objects/bartop.tscn" id="10_h5g1y"]
-[ext_resource type="PackedScene" uid="uid://ys8o7nnqccg3" path="res://Objects/host_stand.tscn" id="11_qd626"]
+[ext_resource type="PackedScene" uid="uid://cbulkhqnx6a5w" path="res://Objects/Reception/Reception.tscn" id="10_qd626"]
+[ext_resource type="PackedScene" uid="uid://2c51664oqwiy" path="res://Objects/Camera/Camera.tscn" id="11_6ivxk"]
 [ext_resource type="PackedScene" uid="uid://dhor4k8m2wsje" path="res://Objects/couch.tscn" id="12_6ivxk"]
 [ext_resource type="ArrayMesh" uid="uid://c7iewvl36m4y0" path="res://Assets/Meshes/room.mesh" id="12_qd626"]
 [ext_resource type="PackedScene" uid="uid://dhf7bvcky3pqf" path="res://Objects/coffee_table.tscn" id="13_6yo1i"]
@@ -40,11 +41,6 @@ volumetric_fog_sky_affect = 0.0
 
 [node name="Main" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h5g1y")
-
-[node name="LightmapGI" type="LightmapGI" parent="."]
-
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_amygn")
 days = Array[ExtResource("2_u2i7p")]([SubResource("Resource_h5g1y"), SubResource("Resource_6aewd"), SubResource("Resource_kf8jr")])
@@ -63,14 +59,17 @@ metadata/_custom_type_script = "uid://d0s8u8wvhknld"
 script = ExtResource("9_bor5n")
 metadata/_custom_type_script = "uid://c8iwnmgbc5lp5"
 
+[node name="Reception" parent="." instance=ExtResource("10_qd626")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.39632344, 0, -1.6524659)
+
+[node name="Camera" parent="." instance=ExtResource("11_6ivxk")]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0.1852594, 1.8541942, -1.6606219)
+
 [node name="Bartop" parent="." instance=ExtResource("10_h5g1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59251, 1.1920929e-07, -2.1401894)
 
 [node name="Bartop2" parent="." instance=ExtResource("10_h5g1y")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5925102, 1.1920929e-07, -0.14018941)
-
-[node name="host_stand3" parent="." instance=ExtResource("11_qd626")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.38975978, 0, -1.6432476)
 
 [node name="Room2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.082896, 0, -7.583631)
@@ -94,30 +93,31 @@ transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, 1.
 [node name="Coffee table" parent="Room2" instance=ExtResource("13_6yo1i")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.4948146, 0, 4.9622693)
 
-[node name="Lights" type="Node3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h5g1y")
 
-[node name="CeilingLight2" type="OmniLight3D" parent="Lights"]
+[node name="CeilingLight2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0643435, 4.5427094, -14.535404)
 light_color = Color(0.895387, 0.58137375, 0.8231495, 1)
 
-[node name="CeilingLight1" type="OmniLight3D" parent="Lights"]
+[node name="CeilingLight1" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0643435, 4.5427094, -7.9474316)
 light_color = Color(0.5671985, 0.70562726, 0.94109774, 1)
 
-[node name="Lamp1" type="OmniLight3D" parent="Lights"]
+[node name="Lamp1" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08513737, 1.3827168, -7.484695)
 light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
 
-[node name="Lamp2" type="OmniLight3D" parent="Lights"]
+[node name="Lamp2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08513737, 1.3827168, -12.502717)
 light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
 
-[node name="Lamp3" type="OmniLight3D" parent="Lights"]
+[node name="Lamp3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.993503, 2.9514153, -1.9139663)
 light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
 shadow_enabled = true
 
-[node name="Lamp4" type="OmniLight3D" parent="Lights"]
+[node name="Lamp4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.993503, 2.9514153, -1.9139663)
 light_color = Color(0.92653364, 0.6135525, 0.4983101, 1)
 shadow_enabled = true
@@ -130,15 +130,11 @@ shadow_enabled = true
 spot_range = 1.0
 spot_angle = 90.0
 
-[node name="OutsideLight" type="OmniLight3D" parent="Lights"]
+[node name="OutsideLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.669689, 6.351652, -3.615087)
 light_color = Color(0.8498425, 0.8688784, 0.9192041, 1)
 light_energy = 16.0
 omni_range = 14.775
 omni_attenuation = 2.073
 
-[node name="Reception" parent="." instance=ExtResource("13_h5g1y")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.73574734, 0, -2.4142957)
-
-[node name="Camera" parent="." instance=ExtResource("14_qd626")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.11234504, 1.9579166, -2.3502686)
+[node name="LightmapGI" type="LightmapGI" parent="."]
