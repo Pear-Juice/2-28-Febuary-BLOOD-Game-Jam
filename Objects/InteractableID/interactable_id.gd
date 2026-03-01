@@ -31,9 +31,13 @@ func rotate_to_starting_position():
 	rotate_tween = get_tree().create_tween()
 	rotate_tween.tween_property(self, "rotation", starting_rotation, 0.05)
 
-func _on_area_3d_mouse_entered() -> void:
+func _mouse_enter():
+	print("Enter")
 	rotate_sprite_and_collision()
-
-
-func _on_area_3d_mouse_exited() -> void:
+	
+func _mouse_exit():
+	print("Exit")
 	rotate_to_starting_position()
+
+func _mouse_click():
+	print("Mouse click")
