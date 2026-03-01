@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://2c51664oqwiy"]
+[gd_scene load_steps=5 format=3 uid="uid://2c51664oqwiy"]
 
 [ext_resource type="Script" uid="uid://c73vfbspulq1k" path="res://Objects/Camera/Camera.gd" id="1_t61dh"]
 [ext_resource type="Script" uid="uid://d4kc232jkpghw" path="res://Objects/Camera/RayCast.gd" id="2_daqxd"]
+
+[sub_resource type="Gradient" id="Gradient_daqxd"]
+offsets = PackedFloat32Array(0.0390625, 0.09375)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i50sj"]
+gradient = SubResource("Gradient_daqxd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Camera" type="Node3D"]
 script = ExtResource("1_t61dh")
@@ -19,3 +28,16 @@ transform = Transform3D(1, 0, 0, 0, -8.742278e-08, -1, 0, 2, -4.371139e-08, 0, 0
 collide_with_areas = true
 debug_shape_custom_color = Color(0.8994669, 0.52110714, 0, 1)
 script = ExtResource("2_daqxd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_i50sj")
