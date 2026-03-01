@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4xs5s7n47or2"]
+
+[ext_resource type="Texture2D" uid="uid://cwm5biy7k84m5" path="res://Objects/InteractableID/ID Card.jpg" id="1_q8h6s"]
+[ext_resource type="Script" uid="uid://res34s6klqpu" path="res://Objects/InteractableID/interactable_id.gd" id="2_pnlg4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pnlg4"]
+size = Vector3(17, 11.066, 1)
+
+[node name="InteractableId" type="Sprite3D"]
+texture = ExtResource("1_q8h6s")
+script = ExtResource("2_pnlg4")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03237319, 0.11814606, 0.25592995)
+shape = SubResource("BoxShape3D_pnlg4")
