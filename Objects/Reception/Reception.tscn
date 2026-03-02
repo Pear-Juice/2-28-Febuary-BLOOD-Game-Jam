@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbulkhqnx6a5w"]
+[gd_scene load_steps=7 format=3 uid="uid://cbulkhqnx6a5w"]
 
 [ext_resource type="Script" uid="uid://b58ar1kgkyk88" path="res://Objects/Reception/Reception.gd" id="1_e6low"]
 [ext_resource type="PackedScene" uid="uid://ys8o7nnqccg3" path="res://Objects/host_stand.tscn" id="2_78cpd"]
 [ext_resource type="PackedScene" uid="uid://cbqv6moqrygkn" path="res://Objects/CharacterObj/CharacterObj.tscn" id="2_xkmxa"]
+[ext_resource type="Script" uid="uid://v04ed3cg56k2" path="res://Objects/Reception/character_area.gd" id="4_ms7mn"]
+[ext_resource type="Texture2D" uid="uid://cyydewv01vl5v" path="res://Assets/beautiful_textbox_placeholder.png" id="4_xkmxa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78cpd"]
+size = Vector3(1, 1.459, 0)
 
 [node name="Reception" type="Node3D" node_paths=PackedStringArray("entrance", "exit", "target")]
 script = ExtResource("1_e6low")
@@ -29,3 +34,23 @@ light_energy = 0.5
 shadow_enabled = true
 spot_range = 1.0
 spot_angle = 45.43
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("4_ms7mn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7073119, -1.2328206)
+shape = SubResource("BoxShape3D_78cpd")
+disabled = true
+
+[node name="Textbox" type="Sprite3D" parent="."]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -0.66407573, 2.1209831, -0.4672594)
+visible = false
+texture = ExtResource("4_xkmxa")
+
+[node name="Label3D" type="Label3D" parent="Textbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28461146, 0.17540073, 0.058950424)
+double_sided = false
+font_size = 54
+autowrap_mode = 2
+width = 775.0

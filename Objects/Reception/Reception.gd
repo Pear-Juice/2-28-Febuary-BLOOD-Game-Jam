@@ -16,6 +16,7 @@ signal character_enter
 var character_obj : CharacterObj
 
 func enter(character : Character):
+	$Area3D/CollisionShape3D.set_disabled(false)
 	character_obj = character_obj_scn.instantiate()
 	character_obj.initialize(character)
 	add_child(character_obj)
@@ -31,6 +32,8 @@ func enter(character : Character):
 	leave()
 
 func leave():
+	$Area3D/CollisionShape3D.set_disabled(false)
+	$Textbox.set_visible(false)
 	var tween_pos = create_tween()
 	var tween_color = create_tween()
 	

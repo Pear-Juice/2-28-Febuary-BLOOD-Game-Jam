@@ -7,7 +7,9 @@ var has_clicked : bool
 
 func _physics_process(delta: float) -> void:
 	if is_colliding():
-		hit_obj = get_collider().get_parent() as Node3D
+		hit_obj = get_collider() as Node3D
+		if(!hit_obj.has_method("_mouse_click")):
+			hit_obj = get_collider().get_parent() as Node3D
 		
 		if hit_obj:
 			if hit_obj.has_method("_mouse_enter") && !has_entered:
