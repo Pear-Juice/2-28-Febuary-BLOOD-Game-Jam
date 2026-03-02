@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv1gxdx4lb2hv"]
+[gd_scene load_steps=7 format=3 uid="uid://dv1gxdx4lb2hv"]
 
 [ext_resource type="Script" uid="uid://c5qy2bjknnif6" path="res://Objects/Bar/Bar.gd" id="1_2mo7t"]
 [ext_resource type="PackedScene" uid="uid://bcx5rn2vow7sk" path="res://Objects/bartop.tscn" id="1_2ynl2"]
 [ext_resource type="PackedScene" uid="uid://cbqv6moqrygkn" path="res://Objects/CharacterObj/CharacterObj.tscn" id="2_4q4k8"]
+[ext_resource type="Texture2D" uid="uid://bap6itofy6rnt" path="res://Assets/Red-Bottle.png" id="4_q3hdy"]
+[ext_resource type="Script" uid="uid://dpo6aa8vr0qex" path="res://Objects/Bar/blood_option.gd" id="5_us2hm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q3hdy"]
+size = Vector3(2.541107, 9.5023575, 0)
 
 [node name="Bar" type="Node3D" node_paths=PackedStringArray("entrance", "exit", "target")]
 script = ExtResource("1_2mo7t")
@@ -25,3 +30,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24166, -0.4563403, -2.81580
 
 [node name="Exit" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24166, -0.4563403, -2.8158078)
+
+[node name="Blood" type="Sprite3D" parent="."]
+transform = Transform3D(0.06103899, 0, -0.06613806, 0, 0.09, 0, 0.06613806, 0, 0.06103899, 5.906354, 1.4253569, -2.2542531)
+texture = ExtResource("4_q3hdy")
+script = ExtResource("5_us2hm")
+
+[node name="Area3D" type="Area3D" parent="Blood"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blood/Area3D"]
+transform = Transform3D(0.9999994, 0, 7.867813e-06, 0, 1, 0, -7.867813e-06, 0, 0.9999994, -0.11331177, 0.50341034, 0.5436554)
+shape = SubResource("BoxShape3D_q3hdy")
+
+[node name="Label3D" type="Label3D" parent="Blood"]
+transform = Transform3D(0.010554343, 0.8952854, -0.4453684, -0.7100381, 0.32032192, 0.6270882, 0.70408416, 0.30960974, 0.63906753, 0.020988464, -1.1472692, 0.5102539)
+modulate = Color(0, 0, 0, 1)
+text = "Blood"
+font_size = 300
+
+[node name="FakeBlood" type="Sprite3D" parent="."]
+transform = Transform3D(0.06103899, 0, -0.06613806, 0, 0.09, 0, 0.06613806, 0, 0.06103899, 6.1820583, 1.4253569, -1.9091344)
+texture = ExtResource("4_q3hdy")
+script = ExtResource("5_us2hm")
+
+[node name="Area3D" type="Area3D" parent="FakeBlood"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FakeBlood/Area3D"]
+transform = Transform3D(0.9999994, 0, 7.867813e-06, 0, 1, 0, -7.867813e-06, 0, 0.9999994, -0.11331177, 0.50341034, 0.5436554)
+shape = SubResource("BoxShape3D_q3hdy")
+
+[node name="Label3D" type="Label3D" parent="FakeBlood"]
+transform = Transform3D(0.010554343, 0.8952854, -0.4453684, -0.7100381, 0.32032192, 0.6270882, 0.70408416, 0.30960974, 0.63906753, 0.020988464, -1.1472692, 0.5102539)
+modulate = Color(0, 0, 0, 1)
+text = "Fake"
+font_size = 300
